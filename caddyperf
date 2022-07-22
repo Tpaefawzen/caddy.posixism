@@ -5,12 +5,9 @@
 # caddyperf
 # POST to http://golf.shinh.org/checker.rb with program source and input file.
 #
-# 1. FORCE_WGET=1 FORCE_CURL=1 by default
-# 2. name changed from performance-checker.sh
-# 3. tried to fix a bug when $2 is unset; field <input> had to be set for that server
-# 4. one stop for mime-make-ing.
+# 1. Why not exit_trap $?
 #
-# written by Tpaefawzen on 2022-07-15
+# written by Tpaefawzen on 2022-07-22
 #
 ################################################################################
 
@@ -128,6 +125,6 @@ case "${CMD_WGET:+wget}${CMD_CURL:+curl}" in (wget|wgetcurl)
       "$URL"
 ;;esac
 
-exit_trap 0
+exit_trap $?
 
 # vim: set softtabstop=3
